@@ -23,10 +23,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-nsq=v(b2p&y9q4#su%g5!jwq=suc+)soswusfa6zyg_%$6#e*8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True # 개발모드는 True, 운영모드는 False
 
-ALLOWED_HOSTS = []
+# 기동할 서버의 ip 나열: 서버의 ip 등록
+ALLOWED_HOSTS = [] # 모든 서버 ip 사용 가능
 
+# 컴퓨터 192.168.0.5 와 220.221.10.6 인 두대의 컴퓨터에서 운영
+# ALLOWED_HOSTS + [192.168.0.5,220.221.10.6]
+# ALLOWED_HOSTS = [*] # 모든 서버 ip 사용 가능
 
 # Application definition
 
@@ -50,12 +54,14 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# 클라이언트 요청 시 url을 확인할 모듕(py파일) : manage.py가 있는 폴더에서 찾는다
 ROOT_URLCONF = 'ToDoList.urls'
 
+# html, css, js 등 front에 대한 설정
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [], # app 폴더를 의미
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,6 +80,7 @@ WSGI_APPLICATION = 'ToDoList.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DB 설정: 다른 DB 사용시 설정 변경 해야 함
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -106,7 +113,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+# 시간 설정
+# TIME_ZONE = 'UTC' # 세계 표준시
+TIME_ZONE = 'Asia/Seoul' # 한국시간으로 설정
 
 USE_I18N = True
 

@@ -14,8 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('',include('my_to_do_app.urls')), # my_to_do_app.urls.py 파일을 생성해야 함
+    # http://127.0.0.1:8000으로 시작하는 모든 요청은 my_to_do_app.url로 전달
+    path('admin/', admin.site.urls), # 장고가 제공하는 관리자 사이트의 url -완성이므로 필요할때 사용!
+
+    # http://127.0.0.1/admin/ : 현재 파일에서 매칭
 ]
+
