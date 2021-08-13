@@ -15,6 +15,6 @@ def createTodo(request) :
     new_todo = Todo(content=user_input_str) # modela에 대입: insert into _todo (content) values (input_str)
     new_todo.save() # DB에 반영
 
-    return HttpResponse('입력한 메모 data는: '+ user_input_str)
+    return HttpResponse('입력한 메모 data는: '+ user_input_str + "는 DB에 저장되었습니다.")
     # return HttpResponse('createTodo 메모 작성 합니다~') # 요청에 응답하는지만 확인
 
